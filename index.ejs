@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>first app</title>
+</head>
+<body>
+    <div>Enter the Post:</div>
+    <form action="/quote"  method="POST">
+       <input type="text" placeholder="title" name="title">
+       <br>
+       <textarea placeholder="discription" name="discription"></textarea>
+       <button type="submit">Submit</button>
+    </form>
+    <div>
+        <div>Finding post:<br> Enter post id:</div>
+        <form action="/find">
+            <input type="text" placeholder="id" name="idno" >
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    <div>
+        <h2> Post </h2>
+        <ul class="quotes">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < post.length; i++) {%>
+            <li class="quote">
+            <!-- Output name from the iterated quote object -->
+            <span><%= post[i].title %></span>:
+            <br>
+            <!-- Output quote from the iterated quote object -->
+            <span><%= post[i].discription %></span>
+            <br>
+            <div>post ID:<span><%= post[i].id %></span></div>
+            </li>
+            <hr>
+        <% } %>
+        </ul>
+    </div>
+</body>
+</html>
